@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@angular/cli": "^18.0.4"
+    "@angular/cli": "^18.0.4",
+    "@angular/fire": "^18.0.1"
   }
 }

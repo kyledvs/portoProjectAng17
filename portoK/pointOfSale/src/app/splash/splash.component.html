@@ -1,0 +1,7 @@
+<p>splash works!</p>
+<ul>
+    <li class="text" *ngFor="let item of items$ | async"><p>{{ item.name }}</p>
+  </ul>
+
+
+  <button (click)="toAdmin()">to admin</button>

@@ -1,0 +1,12 @@
+.mainWrap {
+
+    display: flex;
+    height: 100vh;
+
+}
+
+.sideBar {
+    background-color: rgb(11, 11, 11);
+    width: 15vw;
+
+}
