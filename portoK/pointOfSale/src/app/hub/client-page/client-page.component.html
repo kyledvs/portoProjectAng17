@@ -1,1 +1,21 @@
-<button mat-button (click)="openDialog()">Create Client</button>
+<div class="wrapper">
+
+
+
+<div class="addClientButton"></div>
+
+<button mat-button (click)="openDialog()" mat-flat-button>Create Client</button>
+
+
+
+
+<div class="recentBox">
+    <h3>recent activity</h3>
+    <div class="clientInsance" *ngFor="let clients of client$ | async"><p>{{ clients.name }} {{ clients.contact}} {{ clients.birthday}}</p>
+    </div>
+</div>
+
+</div>
+
+
+

@@ -1,0 +1,31 @@
+<div class="dialogMargin">
+    
+    <h2 mat-dialog-title>Create Client</h2>
+
+    <mat-dialog-content>
+
+        <form [formGroup]="searchForm">
+
+            <div>
+        
+            <mat-form-field appearance="outline">
+                <mat-label>Search</mat-label>
+                <input matInput id="searchName" formControlName="searchName">
+            </mat-form-field>
+            </div>
+
+
+            
+
+
+    <mat-dialog-actions>
+        <button mat-button (click)="onSubmit(searchForm)" cdkFocusInitial>Ok</button>
+        <button mat-button mat-dialog-close>No</button>
+
+      </mat-dialog-actions>
+
+
+</form>
+</mat-dialog-content>
+
+</div>

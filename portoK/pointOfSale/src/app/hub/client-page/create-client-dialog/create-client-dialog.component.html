@@ -4,7 +4,7 @@
     
         <mat-dialog-content>
 
-            <form [formGroup]="createClientForm" (submit)="onSubmit()">
+            <form [formGroup]="createClientForm">
 
                 <div>
             
@@ -26,7 +26,7 @@
             
 
                 <div>
-                <mat-form-field>
+                <mat-form-field appearance="outline">
                     <mat-label>Date of Birth</mat-label>
                     <input matInput id="birthday" formControlName="birthday">
                 </mat-form-field>
@@ -35,7 +35,7 @@
 
 
         <mat-dialog-actions>
-            <button mat-button (click)="onSubmit()" cdkFocusInitial>Ok</button>
+            <button mat-button (click)="onSubmit(createClientForm)" cdkFocusInitial>Ok</button>
             <button mat-button mat-dialog-close>No</button>
 
           </mat-dialog-actions>

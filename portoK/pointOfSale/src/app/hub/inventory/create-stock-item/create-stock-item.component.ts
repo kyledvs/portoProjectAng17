@@ -32,15 +32,11 @@ import { subscribe } from 'diagnostics_channel';
 
 
 
-
-
-
-
 @Component({
-  selector: 'app-create-client-dialog',
+  selector: 'app-create-stock-item',
   standalone: true,
-  
-  imports: [CommonModule, 
+  imports: [
+    CommonModule, 
     ReactiveFormsModule,
      MatFormFieldModule, 
      MatInputModule, 
@@ -53,84 +49,66 @@ import { subscribe } from 'diagnostics_channel';
       MatDividerModule,
       MatDatepickerModule,
 
-      
-      
-      
   ],
-
-  providers: [provideNativeDateAdapter()], 
-
-  
-  
-  templateUrl: './create-client-dialog.component.html',
-  styleUrl: './create-client-dialog.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-
+  templateUrl: './create-stock-item.component.html',
+  styleUrl: './create-stock-item.component.css'
 })
-export class CreateClientDialogComponent {
+export class CreateStockItemComponent {
+  createStockItemForm!: FormGroup;
 
-  createClientForm!: FormGroup;
-
-  clientins!: Observable<any[]>;
-
+  stockItems!: Observable<any[]>;
 
 
-
+  /*ename!: any;
+  ecolor!: any;
+  eage!: any;
+*/
  
-
-
-
-
   constructor(public dialog: MatDialog,
     private fb: FormBuilder,
     private db: Firestore,
   ) {
 
 
+    /*this.createStockItemForm = this.fb.group({
+      title: [''],
+      description: [''],
+      // Add other form controls here
+    });*/
 
 
-    
-    
-
-    
-
-
-
-    this.createClientForm = this.fb.group({
-      name: new FormControl([]),
-      contact: new FormControl([]),
-      birthday: new FormControl([]),
+    this.createStockItemForm = this.fb.group({
+      SKU: new FormControl([]),
+      description: new FormControl([]),
+      unitOfMeasurement: new FormControl([]),
+      category: new FormControl([]),
 
     })
-    
-
-    
-
-
+  
     
   }
 
-  onSubmit( createClientForm:any ) {
-    const formData = this.createClientForm.value;
+  onSubmit( createStockItemForm:any ) {
+    const formData = this.createStockItemForm.value;
     //this.db.collection('tutorials').add(formData);
 
-    console.log('checking 12', formData)
+    console.log('checking st wr', formData)
 
-
-   
-    const docRef =  addDoc(collection(this.db, 'clients'), {
-      name: formData.name,
-      contact: formData.contact,   
-      birthday: formData.birthday
+    const docRef =  addDoc(collection(this.db, 'stockItems'), {
+      SKU: formData.SKU,
+      description: formData.description,   
+      unitOfMeasurement: formData.unitOfMeasurement,
+      onHand: 0,
+      initialCost: 0,
+      category: formData.category
     });
 
-    
+    console.log(this.createStockItemForm.value)
+    console.log("stock created")
 
-
-    console.log(this.createClientForm.value)
-    console.log("gytf")
-
+    localStorage.setItem('sser', JSON.stringify(formData))
 
   }
+
 
 }

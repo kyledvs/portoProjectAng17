@@ -2,7 +2,12 @@
 <div class="mainWrap">
 
     <div class="sideBar"> 
-        <p>Logo</p>
+       <div><h1>Logo</h1></div> 
+        <div (click)="toClient()"><h2>clients</h2></div>
+        <div (click)="toInventory()"><h2>inventory</h2></div>
+        <div (click)="toBilling()"><h2>billing</h2></div>
+        <div (click)="toDayEnd()"><h2>day-end</h2></div>
+
     </div>
 <div><router-outlet></router-outlet></div>
 
