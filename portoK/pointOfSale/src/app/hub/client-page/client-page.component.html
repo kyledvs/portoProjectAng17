@@ -2,18 +2,69 @@
 
 
 
-<div class="addClientButton"></div>
+<div class="addClientButton" (click)="openDialog()"><div class="images"></div></div>
 
-<button mat-button (click)="openDialog()" mat-flat-button>Create Client</button>
+<table mat-table [dataSource]="client$" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="contact">
+      <th mat-header-cell *matHeaderCellDef> contact </th>
+      <td mat-cell *matCellDef="let element"> {{element.contact}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="birthday">
+      <th mat-header-cell *matHeaderCellDef> birthday </th>
+      <td mat-cell *matCellDef="let element"> {{element.birthday}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row
+    (click)="clickedRows.add(row)"
+    [class.demo-row-is-clicked]="clickedRows.has(row)"
+    *matRowDef="let row; columns: displayedColumns;"></tr>
 
 
 
 
-<div class="recentBox">
+  </table>
+
+  <div>
+    <h3>
+      Click Log
+    </h3>
+  </div>
+  
+  @if (!clickedRows.size) {
+    <div><p>Select a client</p></div>
+  }
+  
+  <ul>
+    @for (clickedRow of clickedRows; track clickedRow) {
+      <li>Clicked on {{clickedRow.name}}</li>
+    }
+  </ul>
+
+  
+
+
+
+<!-- <div class="recentBox">
     <h3>recent activity</h3>
     <div class="clientInsance" *ngFor="let clients of client$ | async"><p>{{ clients.name }} {{ clients.contact}} {{ clients.birthday}}</p>
     </div>
-</div>
+</div>-->
 
 </div>
 

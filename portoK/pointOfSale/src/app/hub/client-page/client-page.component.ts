@@ -16,14 +16,32 @@ import { CustomMaterialModule } from '../../cusomma';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
+import {MatTableModule} from '@angular/material/table';
+
+export interface PeriodicElement {
+  name: string;
+  contact: string;
+  birthday: string;
+}
+
+const ELEMENT_DATA: PeriodicElement[] = [
+
+];
+
 @Component({
   selector: 'app-client-page',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, CustomMaterialModule],
+  imports: [RouterOutlet, CommonModule, CustomMaterialModule, MatTableModule],
   templateUrl: './client-page.component.html',
   styleUrl: './client-page.component.css'
 })
 export class ClientPageComponent  {
+
+  displayedColumns: string[] = ['name', 'contact', 'birthday'];
+  dataSource = ELEMENT_DATA;
+
+  clickedRows = new Set<PeriodicElement>();
+
 
   
 
