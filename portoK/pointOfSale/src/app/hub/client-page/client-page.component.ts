@@ -24,6 +24,16 @@ export interface PeriodicElement {
   birthday: string;
 }
 
+import { HostBinding} from '@angular/core';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
+
 const ELEMENT_DATA: PeriodicElement[] = [
 
 ];
@@ -33,7 +43,39 @@ const ELEMENT_DATA: PeriodicElement[] = [
   standalone: true,
   imports: [RouterOutlet, CommonModule, CustomMaterialModule, MatTableModule],
   templateUrl: './client-page.component.html',
-  styleUrl: './client-page.component.css'
+  styleUrl: './client-page.component.css',
+  animations: [
+    trigger('openClose', [
+      // ...
+      state(
+        'open',
+        style({
+          height: '200px',
+          opacity: 1,
+          backgroundColor: 'yellow',
+        }),
+      ),
+      state(
+        'closed',
+        style({
+          height: '100px',
+          opacity: 0.8,
+          backgroundColor: 'blue',
+        }),
+      ),
+      transition('open => closed', [animate('1s')]),
+      transition('closed => open', [animate('0.5s')]),
+
+    ]),
+
+    
+      trigger('flyInOut', [
+        state('in', style({transform: 'translateX(0)'})),
+        transition('void => *', [style({transform: 'translateX(-100%)'}), animate(100)]),
+        transition('* => void', [animate(100, style({transform: 'translateX(100%)'}))]),
+      ]),
+    
+      ],
 })
 export class ClientPageComponent  {
 
@@ -47,6 +89,11 @@ export class ClientPageComponent  {
 
   firestore: Firestore = inject(Firestore);
   client$: Observable<any[]>;
+
+  isOpen = true;
+  toggle() {
+    this.isOpen = !this.isOpen;
+  }
 
   constructor(public router: Router,
     public dialog: MatDialog

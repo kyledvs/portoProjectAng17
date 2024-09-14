@@ -18,8 +18,12 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(),
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(),  [
     
+        provideAnimationsAsync(),
+    
+      ],
+
   provideFirebaseApp(() => initializeApp({
     apiKey: "AIzaSyDNsX0a_IdFUwFc2LIuAZjOZq5PPI-Q7QE",
     authDomain: "trueblue-55664.firebaseapp.com",
@@ -32,6 +36,6 @@ export const appConfig: ApplicationConfig = {
   })),
   provideFirestore(() => getFirestore()), provideAnimationsAsync(),
 
-  
+
   ]
 };

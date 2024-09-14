@@ -14,6 +14,10 @@ export class HubComponent {
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
+  toAgenda() {
+    this.router.navigate(['agenda'], {relativeTo:this.route});
+
+  };
 
   toClient() {
     this.router.navigate(['clientss'], {relativeTo:this.route});

@@ -11,12 +11,27 @@
 
 }
 
+.logoWrap {
+    width: 100%;
+    height: 20%;
+    background-image: url("../../assets/adendorfflogo.png");
+    background-position: center;
+    background-size:contain;
+    background-repeat: no-repeat;
+
+}
+
 .images {
     width: 5vw;
     height: 5vw;
     background-image: url("../../assets/inventory_2_24dp_FILL0_wght400_GRAD0_opsz24.png");
     background-position: center;
     background-size: cover;
+}
+
+.svvg {
+    width: 2vw;
+    height: 2vw;
 }
 
 .sideBarButtons {

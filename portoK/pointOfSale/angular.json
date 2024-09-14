@@ -90,12 +90,8 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
+            "assets":
+            [ "src/assets" ], 
             "styles": [
               "src/styles.css"
             ],

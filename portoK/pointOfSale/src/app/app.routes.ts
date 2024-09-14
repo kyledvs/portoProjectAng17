@@ -5,6 +5,7 @@ import { ClientPageComponent } from './hub/client-page/client-page.component';
 import { InventoryComponent } from './hub/inventory/inventory.component';
 import { BillingComponent } from './hub/billing/billing.component';
 import { DayEndComponent } from './hub/day-end/day-end.component';
+import { AgendaComponent } from './hub/agenda/agenda.component';
 
 export const routes: Routes = [
     { path: '', component: SplashComponent },
@@ -14,7 +15,10 @@ export const routes: Routes = [
     path: 'hub', component: HubComponent, children: [
 
       {
-        path: '', component: ClientPageComponent
+        path: '', component: AgendaComponent
+      },
+      {
+        path: 'agenda', component: AgendaComponent
       },
 
       {

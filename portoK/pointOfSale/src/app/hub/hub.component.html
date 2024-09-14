@@ -2,15 +2,18 @@
 <div class="mainWrap">
 
     <div class="sideBar"> 
-       <div><h1>Logo</h1></div> 
-        <div class="sideBarButtons" (click)="toClient()"><h2>clients</h2></div>
-        <div class="sideBarButtons" (click)="toInventory()">  <div class="images"></div>
+       <div class="logoWrap"></div> 
+       <div class="sideBarButtons" (click)="toAgenda()"><img class="svvg" src="assets/group_24dp_009696_FILL0_wght600_GRAD0_opsz24.svg"><h2>Agenda</h2></div>
+
+        <div class="sideBarButtons" (click)="toClient()"><img class="svvg" src="assets/group_24dp_009696_FILL0_wght600_GRAD0_opsz24.svg"><h2>clients</h2></div>
+        <div class="sideBarButtons" (click)="toInventory()"> <img class="svvg" src="assets/add_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg">
         <h2>inventory</h2></div>
-        <div class="sideBarButtons" (click)="toBilling()"><h2>billing</h2></div>
-        <div class="sideBarButtons" (click)="toDayEnd()"><h2>day-end</h2></div>
+        <div class="sideBarButtons" (click)="toBilling()"> <div ><img class="svvg" src="assets/add_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg"></div><h2>billing</h2></div>
+        <div class="sideBarButtons" (click)="toDayEnd()"><div ><img class="svvg" src="assets/search_24dp_75FB4C_FILL0_wght600_GRAD0_opsz24.png"></div><h2>day-end</h2></div>
 
     </div>
 <div><router-outlet></router-outlet></div>
+
 
 
 </div>
