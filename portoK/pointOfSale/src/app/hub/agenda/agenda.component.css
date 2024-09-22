@@ -1,0 +1,19 @@
+.agendaWrapper {
+    width: 75vw;
+    height: 99vh;
+    background-color: rgba(0, 59, 59, 0.766);
+}
+.createAgenda {
+    height: calc(2cm + 3vw);
+    width:  calc(2cm + 3vw);
+    background-color: green;
+}
+
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
